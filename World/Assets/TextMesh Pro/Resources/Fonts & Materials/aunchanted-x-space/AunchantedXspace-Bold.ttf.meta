@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 56330c58eac5147ea90882e0813613c8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Aunchanted Xspace
+  fontNames:
+  - Aunchanted Xspace
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 155f0e7fb0def419d91f32cfa13c8906, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
