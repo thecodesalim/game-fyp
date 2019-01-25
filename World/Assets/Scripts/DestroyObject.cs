@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyObject : MonoBehaviour
-{
+public class DestroyObject : MonoBehaviour {
    private void OnTriggerEnter(Collider other) {
 
        if(other.tag == "Finish"){
@@ -11,8 +10,7 @@ public class DestroyObject : MonoBehaviour
            Destroy(this.gameObject);
            Destroy(other.gameObject);
        }
-       else {
-           
+       else {        
            print("destroy");
            Destroy(this.gameObject);
        }  

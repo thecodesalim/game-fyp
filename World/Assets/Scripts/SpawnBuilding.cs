@@ -3,36 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnBuilding : MonoBehaviour {
-	private float spawnTime;
-	public GameObject world;
+	public GameObject planet;
 	public GameObject[] building;
+
 	// Use this for initialization
 	void Start () {
-		spawnTime = 50f;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		spawnTime--;
-	
-		if(spawnTime <= 0) {
-			print("new building");
-			InstantiateBuilding(SpawnPosition());
-		}
+		StartCoroutine(SpawnTimer());
 	}
 
 	// Instantiates a building gameObject and attaches it as child of the planet
 	void InstantiateBuilding(Vector3 spawnPos) {
 		GameObject newCharacter = Instantiate(building[Random.Range(0, 3)], spawnPos, Quaternion.identity) as GameObject;
-		newCharacter.transform.LookAt(world.transform);
+		newCharacter.transform.LookAt(planet.transform);
 		newCharacter.transform.Rotate(180, 360, 0);
-		newCharacter.transform.parent = world.transform;
-		spawnTime = 150;
+		newCharacter.transform.parent = planet.transform;
 	}
 
 	// Returns random spawn positions for the buildings
 	Vector3 SpawnPosition () {
-		Vector3 spawnPosition = Random.onUnitSphere * (world.GetComponent<SphereCollider>().radius + 15f * 0.5f) + world.transform.position;
+		Vector3 spawnPosition = Random.onUnitSphere * (planet.GetComponent<SphereCollider>().radius + 15f * 0.5f) + planet.transform.position;
 		return spawnPosition;
+	}
+	
+	// Spawns a building depending on the timer
+	IEnumerator SpawnTimer() {	
+		print("spawning new buildong");
+		InstantiateBuilding(SpawnPosition());
+		yield return new WaitForSeconds(2f);
+		StartCoroutine(SpawnTimer());
 	}
 }
