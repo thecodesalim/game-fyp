@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 4836756332125771917}
   - component: {fileID: 3956460648728111730}
   - component: {fileID: 5801294190997394169}
+  - component: {fileID: 2190341028794580412}
   m_Layer: 0
   m_Name: House 4
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &4836756332125771917
 Transform:
@@ -79,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2190341028794580412
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2257726232357557814}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02000001, y: 0.020000027, z: 0.08569788}
+  m_Center: {x: 0, y: 0.000000059604645, z: 0}

@@ -6,15 +6,14 @@ using TMPro;
 public class Score : MonoBehaviour {
   public TextMeshProUGUI scoreText;
   private int score = 1;
-  private int timer = 100;
-
-    // Update is called once per frame
-    void Update() {
-        timer--;
-        if(timer <= 0){
-            int j = score++;
-            scoreText.text = j.ToString();
-            timer = 100;
-        }   
+  
+  void Start() {
+     StartCoroutine(ScoreTimer()); 
+  }
+  IEnumerator ScoreTimer() {
+    int j = score++;
+    scoreText.text = j.ToString();
+    yield return new WaitForSeconds(1f);
+    StartCoroutine(ScoreTimer());
     }
 }
