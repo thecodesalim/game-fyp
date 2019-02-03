@@ -5,6 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 	private Vector2 input;
 	private float speed = 50f;
+
+
+	void Start() {
+		//Time.timeScale = 0.5f;
+	}
 	
 	// Update is called once per frame
 	void FixedUpdate() {

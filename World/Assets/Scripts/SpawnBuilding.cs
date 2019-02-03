@@ -20,7 +20,7 @@ public class SpawnBuilding : MonoBehaviour {
 	}
 
 	// Returns random spawn positions for the buildings
-	Vector3 SpawnPosition () {
+	Vector3 GetSpawnPosition () {
 		Vector3 spawnPosition = Random.onUnitSphere * (planet.GetComponent<SphereCollider>().radius + 15f * 0.5f) + planet.transform.position;
 		return spawnPosition;
 	}
@@ -28,7 +28,7 @@ public class SpawnBuilding : MonoBehaviour {
 	// Spawns a building depending on the timer
 	IEnumerator SpawnTimer() {	
 		print("spawning new buildong");
-		InstantiateBuilding(SpawnPosition());
+		InstantiateBuilding(GetSpawnPosition());
 		yield return new WaitForSeconds(2f);
 		StartCoroutine(SpawnTimer());
 	}

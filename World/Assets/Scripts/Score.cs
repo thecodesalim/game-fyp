@@ -5,13 +5,14 @@ using TMPro;
 
 public class Score : MonoBehaviour {
   public TextMeshProUGUI scoreText;
-  private int score = 1;
+  public int score = 1;
+  public int j = 0;
   
   void Start() {
      StartCoroutine(ScoreTimer()); 
   }
   IEnumerator ScoreTimer() {
-    int j = score++;
+    j = score++;
     scoreText.text = j.ToString();
     yield return new WaitForSeconds(1f);
     StartCoroutine(ScoreTimer());

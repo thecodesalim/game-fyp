@@ -7,19 +7,13 @@ public class Asteroid : MonoBehaviour {
 	public GameObject planet;
 	public GameObject asteroid;
     public GameObject[] asteroids;
-	public Color blue = new Color (129.0F,155.0f, 255.0f);
-	
 	void Start() {
 		StartCoroutine(SpawnTimer());
-		line = gameObject.AddComponent<LineRenderer>();
-        line.startWidth = .3f;
-		line.startColor = blue;
-		line.endColor = blue;
+		CreateLineUI();
 	}
 
 	// Update is called once per frame
-	void FixedUpdate () {
-		
+	void FixedUpdate() {
 		asteroids = GameObject.FindGameObjectsWithTag("Respawn");
         Vector3 wayPointPos = new Vector3(planet.transform.position.x, planet.transform.position.y, planet.transform.position.z);
 		for(int i =0; i < asteroids.Length; i++) {
@@ -28,6 +22,15 @@ public class Asteroid : MonoBehaviour {
  			line.SetPosition(1, planet.transform.position);
 			asteroids[i].transform.Rotate(Vector3.forward * 70f * Time.deltaTime);
 		}
+	}
+
+	void CreateLineUI() {
+		line = gameObject.AddComponent<LineRenderer>();
+		Material whiteDiffuseMat = new Material(Shader.Find("Unlit/Texture"));
+		line.material = whiteDiffuseMat;
+        line.startWidth = .1f;
+		line.startColor = Color.blue;
+		line.endColor = Color.blue;
 	}
 
 	IEnumerator SpawnTimer() {
