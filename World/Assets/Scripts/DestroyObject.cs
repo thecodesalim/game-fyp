@@ -3,24 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DestroyObject : MonoBehaviour {
-
+    private AudioSource tickSource;
+    public GameObject planet;
     void Start() {
         //Score Score = GetComponent<Score>();
+        planet = GameObject.Find("Planet 12");
     }
 
     void Update() {
+        tickSource = GetComponent<AudioSource>();
         //StartWave();  
     }
-    void OnTriggerEnter(Collider other) {
+    void OnTriggerEnter(Collider other)  {
+
+        tickSource.Play();
+        print(tickSource);
 
        if(other.tag == "Finish"){
-           print("collided");
            Destroy(this.gameObject);
-           Destroy(other.gameObject);
+           Destroy(other.gameObject, 2f);
        }
        else {        
-           print("destroy");
-           Destroy(this.gameObject);
+           Vector3 spawnPosition = Random.onUnitSphere * (planet.GetComponent<SphereCollider>().radius + 15f * 0.5f) + planet.transform.position;
+           //transform.parent = planet.transform;
+           Destroy(this.gameObject, 2f);
        }  
        
    }

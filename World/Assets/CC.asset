@@ -78,13 +78,13 @@ MonoBehaviour:
       useCameraFov: 0
       kernelSize: 1
   motionBlur:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
-      shutterAngle: 236
-      sampleCount: 14
+      shutterAngle: 242
+      sampleCount: 24
       frameBlending: 0
   eyeAdaptation:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       lowPercent: 45
       highPercent: 95
@@ -95,16 +95,16 @@ MonoBehaviour:
       adaptationType: 0
       speedUp: 2
       speedDown: 1
-      logMin: -8
-      logMax: 4
+      logMin: -10
+      logMax: 8
   bloom:
     m_Enabled: 1
     m_Settings:
       bloom:
-        intensity: 5
+        intensity: 1
         threshold: 0.9
-        softKnee: 0.9
-        radius: 6.3
+        softKnee: 0.197
+        radius: 1
         antiFlicker: 1
       lensDirt:
         texture: {fileID: 2800000, guid: c55042318a938344ab23cd7f09dd0076, type: 3}
@@ -306,7 +306,7 @@ MonoBehaviour:
       lut: {fileID: 0}
       contribution: 1
   chromaticAberration:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       spectralTexture: {fileID: 0}
       intensity: 0.5
@@ -318,7 +318,7 @@ MonoBehaviour:
       size: 1
       luminanceContribution: 0.8
   vignette:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       mode: 0
       color: {r: 0.064070135, g: 0.05380029, b: 0.2924528, a: 1}

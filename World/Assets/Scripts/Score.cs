@@ -10,6 +10,7 @@ public class Score : MonoBehaviour {
   
   void Start() {
      StartCoroutine(ScoreTimer()); 
+     scoreText.enabled = false;
   }
   IEnumerator ScoreTimer() {
     j = score++;
