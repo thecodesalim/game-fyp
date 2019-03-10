@@ -5,17 +5,42 @@ using TMPro;
 
 public class Score : MonoBehaviour {
   public TextMeshProUGUI scoreText;
-  public int score = 1;
-  public int j = 0;
+  public float score = 1;
+  private int waveLevel = 1;
+  private int scoreToNextWave = 20;
+  private int maxWaveLevel = 10;
+  GameManager manager;
+  Asteroid asteroid;
   
   void Start() {
-     StartCoroutine(ScoreTimer()); 
-     scoreText.enabled = false;
+    asteroid = GameObject.FindObjectOfType<Asteroid>();
+    manager = GameObject.FindObjectOfType<GameManager>();
   }
-  IEnumerator ScoreTimer() {
-    j = score++;
-    scoreText.text = j.ToString();
-    yield return new WaitForSeconds(1f);
-    StartCoroutine(ScoreTimer());
+
+  void Update() 
+  {
+    if(manager.gameHasStarted){
+      score += Time.deltaTime;
+      scoreText.text = ((int)score).ToString();
+      if(score >= scoreToNextWave) 
+        NextWave();
     }
+  }
+
+    public float GetScore() 
+    {
+      return this.score;
+    }
+
+    void NextWave() 
+    {
+      if(waveLevel == maxWaveLevel)
+       return;
+
+      scoreToNextWave *= 2;
+      waveLevel++;
+      print("Wave level " + waveLevel);
+      asteroid.IncreaseDifficulty(1);
+    }
+
 }

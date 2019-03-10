@@ -11,7 +11,7 @@ public class Leaderboard : MonoBehaviour
     void Start()
     {
         // Authenticate
-    Social.localUser.Authenticate (ProcessAuthentication);
+        Social.localUser.Authenticate (ProcessAuthentication);
     }
 
     void Awake() {
@@ -34,7 +34,8 @@ public class Leaderboard : MonoBehaviour
 }
 
 public void Press() {
-    checkScoreboardButton.GetComponent<Button>().onClick.AddListener(() => { Social.ShowLeaderboardUI(); });
+    //checkScoreboardButton.GetComponent<Button>().onClick.AddListener(() => { Social.ShowLeaderboardUI(); });
+    Social.ShowLeaderboardUI();
 }
 
 
