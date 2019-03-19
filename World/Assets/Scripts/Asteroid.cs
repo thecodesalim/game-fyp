@@ -10,14 +10,17 @@ public class Asteroid : MonoBehaviour {
     public GameObject[] asteroids;
 	private LineRenderer lr;
 	public float speed = 12f;
+	ObjectPooler objectPooler;
 	void Start() 
 	{
-		
+		objectPooler = ObjectPooler.Instance;
+		print(GetSpawnPosition());
+
 	}
 
 	// Update is called once per frame
 	void FixedUpdate() 
-	{
+	{	
 		asteroids = GameObject.FindGameObjectsWithTag("Respawn");
         Vector3 wayPointPos = new Vector3(planet.transform.position.x, planet.transform.position.y, planet.transform.position.z);
 		for(int i =0; i < asteroids.Length; i++) 
@@ -35,22 +38,22 @@ public class Asteroid : MonoBehaviour {
 		Material whiteDiffuseMat = new Material(Shader.Find ("Sprites/Default"));
 		lr.material = whiteDiffuseMat;
 		lr.startWidth = .1f;
-		lr.startColor = Color.white;
-		lr.endColor = Color.white;
+		lr.startColor = Color.red;
+		lr.endColor = Color.red;
 		lr.SetPosition(0, i.transform.position);
  		lr.SetPosition(1, planet.transform.position);
 	}
 
 	public IEnumerator SpawnTimer() 
 	{
-		GameObject spawnedAsteroid = Instantiate(asteroid, GetSpawnPosition(), Quaternion.identity); 
-		line = spawnedAsteroid.AddComponent<LineRenderer>();
+		//GameObject spawnedAsteroid = Instantiate(asteroid, GetSpawnPosition(), Quaternion.identity); 
+		GameObject spawnedAsteroid = objectPooler.SpawnFromPool("asteroid", GetSpawnPosition(), Quaternion.identity); 
 		yield return new WaitForSeconds(delay);
 		StartCoroutine(SpawnTimer());
 	}
 
 	Vector3 GetSpawnPosition() {
-		Vector3 spawnPosition = Random.onUnitSphere * (planet.GetComponent<SphereCollider>().radius + 15f * 3f) + planet.transform.position;
+		Vector3 spawnPosition = Random.onUnitSphere * (planet.GetComponent<SphereCollider>().radius + 10f * 3f) + planet.transform.position;
 		return spawnPosition;
 	}
 

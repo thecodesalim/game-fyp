@@ -26,7 +26,7 @@ public class Leaderboard : MonoBehaviour
         }     
     }
 
-    void ReportScore (long score, string leaderboardID) {
+    public void ReportScore (long score, string leaderboardID) {
     Debug.Log ("Reporting score " + score + " on leaderboard " + leaderboardID);
     Social.ReportScore (score, leaderboardID, success => {
 	Debug.Log(success ? "Reported score successfully" : "Failed to report score");

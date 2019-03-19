@@ -9,17 +9,18 @@ public class Score : MonoBehaviour {
   private int waveLevel = 1;
   private int scoreToNextWave = 20;
   private int maxWaveLevel = 10;
-  GameManager manager;
+  GameManager gameManager;
   Asteroid asteroid;
   
-  void Start() {
+  void Start() 
+  {
     asteroid = GameObject.FindObjectOfType<Asteroid>();
-    manager = GameObject.FindObjectOfType<GameManager>();
+    gameManager = GameManager.Instance;
   }
 
   void Update() 
   {
-    if(manager.gameHasStarted){
+    if(gameManager.gameHasStarted) {
       score += Time.deltaTime;
       scoreText.text = ((int)score).ToString();
       if(score >= scoreToNextWave) 

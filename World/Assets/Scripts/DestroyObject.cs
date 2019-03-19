@@ -30,7 +30,8 @@ public class DestroyObject : MonoBehaviour {
            //print("Destroy " + gameManager.gameHasStarted);
            Destroy(this.gameObject);
            Destroy(other.gameObject, 2f);
-           //gameManager.EndGame();
+           gameManager.EndGame();
+           print("GAMEOVER SCREEN");
        }
        else 
        {        

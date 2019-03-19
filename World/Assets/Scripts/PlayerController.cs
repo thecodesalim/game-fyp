@@ -9,8 +9,8 @@
     {
          //Time.timeScale = 0.5f;
         rb = GetComponent<Rigidbody>();
-        gameManager =  GameObject.FindObjectOfType<GameManager>(); 
-
+        //gameManager =  GameObject.FindObjectOfType<GameManager>(); 
+        gameManager = GameManager.Instance;
     }
  
     void FixedUpdate() 
