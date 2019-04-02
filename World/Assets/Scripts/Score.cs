@@ -41,7 +41,7 @@ public class Score : MonoBehaviour {
       scoreToNextWave *= 2;
       waveLevel++;
       print("Wave level " + waveLevel);
-      asteroid.IncreaseDifficulty(1);
+      asteroid.IncreaseDifficulty(3);
     }
 
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DestroyObject : MonoBehaviour {
     private AudioSource tickSource;
+    public GameObject effect;
     public GameObject planet;
     GameManager gameManager;
     void Start() 
@@ -16,20 +17,16 @@ public class DestroyObject : MonoBehaviour {
     void Update() 
     {
         tickSource = GetComponent<AudioSource>();
-    }
-    void OnTriggerEnter(Collider other)  
+    }    void OnTriggerEnter(Collider other)  
     {
-
-        //print("collison");
-
         tickSource.Play();
-        //print(tickSource);
 
        if(other.tag == "Finish")
        {
-           //print("Destroy " + gameManager.gameHasStarted);
+           Time.timeScale = 0.5f;
+           Instantiate(effect, other.gameObject.transform.position, Quaternion.identity );
            Destroy(this.gameObject);
-           Destroy(other.gameObject, 2f);
+           Destroy(other.gameObject);
            gameManager.EndGame();
            print("GAMEOVER SCREEN");
        }
@@ -37,6 +34,5 @@ public class DestroyObject : MonoBehaviour {
        {        
            Destroy(this.gameObject, 2f);
        }  
-       //gameManager.EndGame();
    }
 }

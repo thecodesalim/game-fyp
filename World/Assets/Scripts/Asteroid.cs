@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour {
 	public float delay = 2.5f;
-	private LineRenderer line; 
 	public GameObject planet;
 	public GameObject asteroid;
     public GameObject[] asteroids;
@@ -14,8 +13,6 @@ public class Asteroid : MonoBehaviour {
 	void Start() 
 	{
 		objectPooler = ObjectPooler.Instance;
-		print(GetSpawnPosition());
-
 	}
 
 	// Update is called once per frame
@@ -37,9 +34,10 @@ public class Asteroid : MonoBehaviour {
 		lr  = i.GetComponent<LineRenderer>();
 		Material whiteDiffuseMat = new Material(Shader.Find ("Sprites/Default"));
 		lr.material = whiteDiffuseMat;
-		lr.startWidth = .1f;
-		lr.startColor = Color.red;
-		lr.endColor = Color.red;
+		lr.startWidth = 0.1f;
+		Color newColor = new Color(0.3f, 0.4f, 0.6f, 0.3f);
+		lr.startColor = newColor;
+		//lr.endColor = newColor;
 		lr.SetPosition(0, i.transform.position);
  		lr.SetPosition(1, planet.transform.position);
 	}
@@ -59,7 +57,7 @@ public class Asteroid : MonoBehaviour {
 
 	public void IncreaseDifficulty(float modifier) 
 	{
-        this.speed += modifier;
+        this.speed += 0.2f;
 		this.delay += 0.5f;
     }
 

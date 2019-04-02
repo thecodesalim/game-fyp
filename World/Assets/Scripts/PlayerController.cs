@@ -3,6 +3,7 @@
  public class PlayerController : MonoBehaviour {
  
     public Rigidbody rb;
+    public float speed;
     GameManager gameManager;
  
     void Start() 
@@ -25,18 +26,21 @@
 
             if(Input.GetTouch(0).position.x > Screen.width/2)
             {
-                rb.AddTorque(Camera.main.transform.up * -touchDeltaPosition.x);
-                rb.AddTorque(Camera.main.transform.right * touchDeltaPosition.y);
-			}
+                rb.AddTorque(Camera.main.transform.up * speed * -touchDeltaPosition.x);
+                rb.AddTorque(Camera.main.transform.right * speed * touchDeltaPosition.y);
+			}    
         }
+        /* 
+        if(Input.GetMouseButton(0))
+            {
+                float h = Input.GetAxis("Mouse X") * 50f;   
+                float v = Input.GetAxis("Mouse Y") * 50f;  
+                rb.AddTorque(Camera.main.transform.up * -h);
+                rb.AddTorque(Camera.main.transform.right * v);
+            } 
+            */
 
-       if(Input.GetMouseButton(0))
-       {
-            float h = Input.GetAxis("Mouse X") * 50f;   
-            float v = Input.GetAxis("Mouse Y") * 50f;  
-            rb.AddTorque(Camera.main.transform.up * -h);
-            rb.AddTorque(Camera.main.transform.right * v);
-        } 
+       
      }
      
  }
