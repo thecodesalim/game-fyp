@@ -106,8 +106,10 @@
      <Compile Include="Assets\Scripts\Leaderboard.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\ObjectPooler.cs" />
+     <Compile Include="Assets\Scripts\Planets.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />
+     <Compile Include="Assets\Scripts\Shop.cs" />
      <Compile Include="Assets\SimpleCumulus\Demo\Scripts\Player\FPSWalkerEnhanced.cs" />
      <Compile Include="Assets\SimpleCumulus\Demo\Scripts\Player\SmoothMouseLook.cs" />
      <Compile Include="Assets\SimpleCumulus\Demo\Scripts\Skybox\SkyboxChanger.cs" />

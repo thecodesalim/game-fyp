@@ -33,7 +33,7 @@ public class BuildingSpawner : MonoBehaviour {
 	public IEnumerator SpawnTimer() 
 	{	
 		InstantiateBuilding(GetSpawnPosition());
-		yield return new WaitForSeconds(delay);
+		yield return new WaitForSeconds(Random.Range(0.5f, 2f));
 		StartCoroutine(SpawnTimer());
 	}
 

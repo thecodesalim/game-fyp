@@ -43,7 +43,7 @@ public class ObjectPooler : MonoBehaviour
     {
         if(!poolDictionary.ContainsKey(tag)) 
         {
-            print("doesm not exist");
+            print("does not exist");
             return null;
         }
 
